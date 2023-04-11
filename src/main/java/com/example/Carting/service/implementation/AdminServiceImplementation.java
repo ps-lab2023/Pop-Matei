@@ -1,6 +1,7 @@
 package com.example.Carting.service.implementation;
 
 import com.example.Carting.DTO.AdminDTO;
+import com.example.Carting.mapper.AdminMapper;
 import com.example.Carting.model.Admin;
 import com.example.Carting.repository.AdminRepository;
 import com.example.Carting.service.AdminService;
@@ -24,7 +25,8 @@ public class AdminServiceImplementation implements AdminService {
         return adminRepository.findAdminByUsername(username);
     }
     public AdminDTO findByUsernameDTO(String username){
-        return adminRepository.findAdminDTOByUsername(username);
+        final Admin admin = adminRepository.findAdminByUsername(username);
+        return AdminMapper.mapModelToDto(admin);
     }
 
     @Override

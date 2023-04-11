@@ -14,7 +14,7 @@ public class AdminController {
     @Autowired
     private AdminService adminService;
 
-    @GetMapping("/find/{username}")
+    @GetMapping("/{username}")
     public AdminDTO findByUsername(@PathVariable String username){
         return adminService.findByUsernameDTO(username);
     }
